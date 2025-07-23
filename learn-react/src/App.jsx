@@ -1,9 +1,10 @@
 import './App.css'
+import LectureList from './components/LectureList'
 
 function App() {
   return (
     <>
-        <div>Hello React</div>
+        <LectureList/>
     </>
   )
 }
