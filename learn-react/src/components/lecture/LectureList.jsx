@@ -3,6 +3,7 @@ import Lecture from "../Lecture"
 
 export default function LectureList ({ items }) {
 
+    // 배열 구조분해 할당
     const [lecture1, lecture2, lecture3] = items
 
     // const lecture1 = {
