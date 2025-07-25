@@ -1,4 +1,4 @@
-export default function LectureItem ({ title, description, thumbnail }) {
+export default function LectureItem ({ title, description, thumbnail, isFavorite }) {
 
     // // 객체 할당
     // const lectureInfo = {
@@ -31,6 +31,18 @@ export default function LectureItem ({ title, description, thumbnail }) {
                     {/* { 1+2 }
                     { viewCount() } */}
                 </div>
+            </div>
+            <div className="course__icons">
+                <button className="btn">
+                    {/* {
+                        isFavorite ? (
+                            <img className="icon-heart" src="/img/heart-fill-icon.svg" alt="" />
+                        ) : (
+                            <img className="icon-heart" src="/img/heart-icon.svg" alt="" />
+                        )
+                    } */}
+                    <img className="icon-heart" src={ isFavorite ? '/img/heart-fill-icon.svg' : '/img/heart-icon.svg' } alt="" />
+                </button>
             </div>
         </article>
     )
