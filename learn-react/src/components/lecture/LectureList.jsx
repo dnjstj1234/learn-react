@@ -1,10 +1,11 @@
 import LectureItem from "./LectureItem"
 import Lecture from "../Lecture"
+import { Fragment } from "react"
 
-export default function LectureList ({ items }) {
+export default function LectureList ({ title, items, onFavorite }) {
 
     // 배열 구조분해 할당
-    const [lecture1, lecture2, lecture3] = items
+    // const [lecture1, lecture2, lecture3] = items
 
     // const lecture1 = {
     //     title: '입문자를 위한, HTML&CSS 웹 개발 입문',
@@ -24,13 +25,13 @@ export default function LectureList ({ items }) {
 
     return (
         <>
-            <Lecture title={'강의 목록'}>
+            {/* <Lecture title={'강의 목록'}>
                 <div className="courses">
                     <LectureItem {...lecture1}/>
                     <LectureItem {...lecture2}/>
                     <LectureItem {...lecture3}/>
                 </div>
-            </Lecture>
+            </Lecture> */}
             {/* <div className="card">
                 <div className="card__header">강의 목록</div>
                 <div className="card__body">
@@ -51,6 +52,21 @@ export default function LectureList ({ items }) {
                     </div>
                 </div>
             </div> */}
+            <Lecture title={title}>
+                <div className="courses">
+                    {
+                        // items.map((item) => <LectureItem key={item.id} {...item} />)
+                        items.map((item, index) => (
+                            <Fragment key={item.id}>
+                                <LectureItem {...item} onFavorite={onFavorite} />
+                                {
+                                    index !== items.length -1 && <hr className="divider"/>
+                                }
+                            </Fragment>
+                        ))
+                    }
+                </div>
+            </Lecture>
         </>
     )
 }
